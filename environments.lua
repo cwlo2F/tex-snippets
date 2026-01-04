@@ -119,7 +119,7 @@ return {
     )
   ),
 
-  s({ trig = "example", dscr = "example" },
+  s({ trig = "exa", dscr = "example" },
     fmta([[
 \begin{example}
 <>

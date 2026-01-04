@@ -9,6 +9,11 @@ return {
     fmta("{<>}", { i(1) })
   ),
 
+  s({ trig = "[", dscr = "Square brackets (text only)", wordTrig = false, snippetType = "autosnippet" },
+    fmta("[<>]", { i(1) }),
+    { condition = tex_utils.in_text }
+  ),
+
   s({ trig = "\\{", dscr = "Math curly braces", snippetType = "autosnippet", priority = 2000 },
     fmta("\\{<>\\}", { i(1) })
   ),

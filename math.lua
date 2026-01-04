@@ -34,25 +34,43 @@ return {
     { condition = tex_utils.in_mathzone }
   ),
 
+  s({ trig = "sq", dscr = "sqrt" },
+    fmta("\\sqrt{<>}", { i(1) }),
+    { condition = tex_utils.in_mathzone }
+  ),
+
+  s({ trig = "sr", wordTrig = false },
+    { t("^{2}") },
+    { condition = tex_utils.in_mathzone }
+  ),
+  s({ trig = "cb", wordTrig = false },
+    { t("^{3}") },
+    { condition = tex_utils.in_mathzone }
+  ),
+
   s({ trig = "td", wordTrig = false },
     fmta("^{<>}", { i(1) }),
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = "^^", wordTrig = false },
+  s({ trig = "^^", wordTrig = false, snippetType = "autosnippet" },
     fmta("^{<>}", { i(1) }),
     { condition = tex_utils.in_mathzone }
-  ), 
+  ),
   s({ trig = "sd", wordTrig = false },
     fmta("_{<>}", { i(1) }),
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = "__", wordTrig = false },
+  s({ trig = "__", wordTrig = false, snippetType = "autosnippet" },
     fmta("_{<>}", { i(1) }),
     { condition = tex_utils.in_mathzone }
   ),
 
   s({ trig = "hat" },
     fmta("\\hat{<>}", { i(1) }),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s({ trig = "(%d+)o", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>^{\\circ}", { f(function(_, snip) return snip.captures[1] end) }),
     { condition = tex_utils.in_mathzone }
   ),
 
@@ -103,7 +121,7 @@ return {
   s({ trig = "([pbBvV])mat", regTrig = true },
     fmta(
       "\\begin{<>matrix} <> \\end{<>matrix}",
-      { 
+      {
 	f( function(_, snip) return snip.captures[1] end ),
 	i(1),
 	f( function(_, snip) return snip.captures[1] end )
@@ -265,11 +283,11 @@ return {
     { t("\\tau") },
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = ";u", snippettype = "autosnippet" },
+  s({ trig = ";u", snippetType = "autosnippet" },
     { t("\\upsilon") },
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = ";U", snippettype = "autosnippet" },
+  s({ trig = ";U", snippetType = "autosnippet" },
     { t("\\Upsilon") },
     { condition = tex_utils.in_mathzone }
   ),

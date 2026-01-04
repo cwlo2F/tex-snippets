@@ -5,6 +5,10 @@ return {
     fmta("\\emph{<>}", { i(1) })
   ),
 
+  s({ trig = "tit" },
+    fmta("\\textit{<>}", { i(1) })
+  ),
+
   s({ trig = "tbf" },
     fmta("\\textbf{<>}", { i(1) })
   ),
